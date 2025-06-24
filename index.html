@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rubik's Cube (Demo)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h2>Rubik's Cube (Demo)</h2>
+
+  <div id="cube-view"></div>
+
+  <button onclick="rotate('U')">Rotate U</button>
+  <button onclick="scramble()">Scramble</button>
+
+  <script src="cube.js"></script>
+  <script>
+    const cube = new Cube();
+
+    function render() {
+      const str = cube.getString();
+      document.getElementById("cube-view").innerHTML = `<pre>${str}</pre>`;
+    }
+
+    function rotate(face) {
+      cube.rotate(face);
+      render();
+    }
+
+    function scramble() {
+      cube.scramble();
+      render();
+    }
+
+    render();
+  </script>
+</body>
+</html>
